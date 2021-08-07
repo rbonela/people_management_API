@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/people")
+@RequestMapping("/person")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonController {
 
@@ -42,8 +42,8 @@ public class PersonController {
 
     @DeleteMapping("/{personId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public MessageResponseDTO deletePersonByID(@PathVariable("personId") Long personId) throws Exception, PersonNotFoundException {
-        return personService.deletePerson(personId);
+    public void deletePersonByID(@PathVariable("personId") Long personId) throws Exception, PersonNotFoundException {
+        personService.deletePerson(personId);
     }
 
 }

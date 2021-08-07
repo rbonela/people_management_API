@@ -44,10 +44,8 @@ public class PersonService {
         return createResponse(alterPersonDB(personDTO),"updated in");
     }
 
-    public MessageResponseDTO deletePerson(Long personId) throws PersonNotFoundException {
-        Person person = verifyIfExists(personId);
+    public void deletePerson(Long personId) throws PersonNotFoundException {
         personRepository.deleteById(personId);
-        return createResponse(person,"deleted from");
     }
 
     private Person verifyIfExists(Long personId) throws PersonNotFoundException{

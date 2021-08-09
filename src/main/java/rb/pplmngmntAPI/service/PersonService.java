@@ -23,7 +23,7 @@ public class PersonService {
     private final PersonMapper personMapper = PersonMapper.INSTANCE;
 
     public MessageResponseDTO savePerson(PersonDTO personDTO) {
-        return createResponse(alterPersonDB(personDTO), "added in");
+        return createResponse(alterPersonDB(personDTO), "added to");
     }
 
     public List<PersonDTO> findAll(){
@@ -45,6 +45,7 @@ public class PersonService {
     }
 
     public void deletePerson(Long personId) throws PersonNotFoundException {
+        verifyIfExists(personId);
         personRepository.deleteById(personId);
     }
 
